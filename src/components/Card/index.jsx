@@ -30,27 +30,46 @@ for (let i = 0; i < 20; i++) {
 function Card() {
   const { online } = useOnlineStatus();
   const addToCartData = useCartStore((state) => state.addToCart);
-  
+
   const addToCart = (item) => {
     const status = online ? "success" : "queue";
     console.log("__data", online, navigator.onLine);
 
     // Add product with updated status to cart
     addToCartData({ ...item, status });
-  };                       
+  };
 
   return (
     <div className="card-container">
       <h1>Product List</h1>
-      <div className="product-container">
-        {products.map((product) => (
-          <div key={product.id} className="product-card">
-            <h2>{product.name}</h2>
-            <p>Price: ${product.price}</p>
-            <p>{product.description}</p>
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
-          </div>
-        ))}
+      <div className="cards-wrapper">
+        <div className="container-wrapper">
+          {products.map((product) => (
+            <div className="cards" key={product.id}>
+              <div className="imgBx">
+                <img
+                  src="http://pngimg.com/uploads/running_shoes/running_shoes_PNG5782.png"
+                  alt="nike-air-shoe"
+                />
+              </div>
+
+              <div className="contentBx">
+                <h2>{product?.name}</h2>
+
+                <div className="size">
+                  <h3 className="attribute">sku :</h3>
+                  <h3 className="attribute">{product?.sku}</h3>
+                </div>
+
+                <div className="color">
+                  <h3 className="attribute">price :</h3>
+                  <h3 className="attribute">{product?.price}</h3>
+                </div>
+                <button onClick={() => addToCart(product)}>Add to Cart</button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
