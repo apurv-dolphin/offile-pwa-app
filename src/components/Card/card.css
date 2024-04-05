@@ -1,5 +1,8 @@
 /* ProductList.css */
-
+.card-container {
+  display: block;
+  margin-top: 5rem;
+}
 .product-container {
   display: flex;
   flex-wrap: wrap;

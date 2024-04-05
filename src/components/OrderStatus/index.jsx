@@ -50,7 +50,7 @@ export default function OrderStatus() {
       <button className="btn" onClick={clearCart}>
         clear cart
       </button>
-      <div className="container">
+      <div className="containers">
         <h1>Responsive Table</h1>
         <table className="rwd-table">
           <tbody>

@@ -30,16 +30,17 @@ for (let i = 0; i < 20; i++) {
 function Card() {
   const { online } = useOnlineStatus();
   const addToCartData = useCartStore((state) => state.addToCart);
-
+  
   const addToCart = (item) => {
-   const status = online ? "success" : "queue";
+    const status = online ? "success" : "queue";
+    console.log("__data", online, navigator.onLine);
 
-   // Add product with updated status to cart
-   addToCartData({ ...item, status });
+    // Add product with updated status to cart
+    addToCartData({ ...item, status });
   };                       
 
   return (
-    <div>
+    <div className="card-container">
       <h1>Product List</h1>
       <div className="product-container">
         {products.map((product) => (

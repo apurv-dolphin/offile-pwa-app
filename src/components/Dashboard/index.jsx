@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import reactLogo from "../../assets/react.svg";
 import viteLogo from "/vite.svg";
-import "../../App.css";
 import { useOnlineStatus } from "../../context/OnlineStatusContext";
 import { toast } from "react-toastify";
+import "./dashboard.css";
 
 function Dashboard() {
   const { online } = useOnlineStatus();
@@ -37,7 +37,7 @@ function Dashboard() {
   }, [online]);
 
   return (
-    <>
+    <div className="App">
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -56,7 +56,7 @@ function Dashboard() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </div>
   );
 }
 
