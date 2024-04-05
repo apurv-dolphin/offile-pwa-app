@@ -15,7 +15,7 @@ export default function OrderStatus() {
       case "success":
         return "green";
       case "queue":
-        return "yellow";
+        return "#fb9329";
       case "failed":
         return "red";
       default:
@@ -29,7 +29,7 @@ export default function OrderStatus() {
       if (queueItems.length > 0) {
         toast.info("Processing...", {
           position: "top-right",
-          autoClose: queueItems.length*1000,
+          autoClose: queueItems.length * 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -42,11 +42,11 @@ export default function OrderStatus() {
         processQueue(queueItems);
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [online]);
 
   return (
-    <>
+    <div className="order-status">
       <button className="btn" onClick={clearCart}>
         clear cart
       </button>
@@ -57,25 +57,25 @@ export default function OrderStatus() {
             <tr>
               <th>id</th>
               <th>Product Name</th>
-              <th>price</th>
+              <th>Price</th>
               <th>SKU</th>
-              <th>status</th>
-              <th>description</th>
+              <th>Status</th>
+              <th>Description</th>
             </tr>
             <>
               {cartData?.map((item, index) => (
                 <tr key={index}>
-                  <td data-th="Supplier Code">{item?.id}</td>
-                  <td data-th="Supplier Name">{item?.name}</td>
-                  <td data-th="Invoice Number">{item?.price}</td>
-                  <td data-th="Invoice Date">{item?.sku}</td>
+                  <td data-th="id">{item?.id}</td>
+                  <td data-th="Product Name">{item?.name}</td>
+                  <td data-th="Price">{item?.price}</td>
+                  <td data-th="SKU">{item?.sku}</td>
                   <td
-                    data-th="Due Date"
+                    data-th="Status"
                     style={{ color: getStatusColor(item?.status) }}
                   >
                     {item?.status}
                   </td>
-                  <td data-th="Net Amount">{item?.description}</td>
+                  <td data-th="Description">{item?.description}</td>
                 </tr>
               ))}
             </>
@@ -83,6 +83,6 @@ export default function OrderStatus() {
         </table>
         <h3>Thank you</h3>
       </div>
-    </>
+    </div>
   );
 }
