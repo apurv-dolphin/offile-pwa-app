@@ -38,7 +38,7 @@ function Dashboard() {
 
   return (
     <div className="App">
-      <div>
+      <div className="text-center">
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -47,13 +47,13 @@ function Dashboard() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
+      <div className="card text-center">
         <button onClick={handleIncrement}>count is {count}</button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
+      <p className="read-the-docs text-center">
         Click on the Vite and React logos to learn more
       </p>
     </div>

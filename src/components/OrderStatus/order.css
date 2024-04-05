@@ -146,4 +146,18 @@ h3 {
 
 .btn {
   display: flex;
+  width: 10%;
+  margin-left: 2rem;
+  background-color: #428bca;
+  justify-content: center;
+  color: #fff;
+}
+
+.order-status {
+  position: absolute;
+  top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 }
