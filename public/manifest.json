@@ -5,7 +5,7 @@
     "scope": "/",
     "start_url": "/",
     "name": "Apurv Khalas PWA",
-    "short_name": "PRA",
+    "short_name": "Ak PWA",
     "description": "A sample PWA App using React",
     "icons": [
         {
