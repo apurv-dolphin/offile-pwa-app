@@ -5,7 +5,6 @@ import "./navbar.css";
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Function to toggle navbar visibility
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
