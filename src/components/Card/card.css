@@ -32,7 +32,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #1bbfe9;
+  background: var(--before-bg-color);
   clip-path: circle(150px at 80% 20%);
   transition: 0.5s ease-in-out;
 }
@@ -189,6 +189,12 @@ h2 {
   opacity: 0;
   transform: translateY(50px);
   transition: 0.5s;
+}
+
+button {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
 }
 
 .container-wrapper .cards:hover .contentBx button {
