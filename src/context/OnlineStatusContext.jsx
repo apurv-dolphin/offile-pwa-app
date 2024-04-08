@@ -23,6 +23,7 @@ export const OnlineStatusProvider = ({ children }) => {
           draggable: true,
           progress: undefined,
           theme: "light",
+          zIndex: 100000,
         });
       } else {
         toast.success("You are back online!", {
@@ -34,6 +35,7 @@ export const OnlineStatusProvider = ({ children }) => {
           draggable: true,
           progress: undefined,
           theme: "light",
+          zIndex: 100000,
         });
       }
       setOnline(isOnline);

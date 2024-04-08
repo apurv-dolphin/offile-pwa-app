@@ -56,7 +56,6 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1000;
   width: 100%;
   height: 100%;
   transition: 0.5s;
@@ -83,7 +82,6 @@
   height: 100px;
   text-align: center;
   transition: 1s;
-  z-index: 90;
 }
 
 .container-wrapper .cards:hover .contentBx {

@@ -33,8 +33,6 @@ function Card() {
 
   const addToCart = (item) => {
     const status = online ? "success" : "queue";
-    console.log("__data", online, navigator.onLine);
-
     // Add product with updated status to cart
     addToCartData({ ...item, status });
   };

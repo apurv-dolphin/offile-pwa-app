@@ -36,6 +36,7 @@ export default function OrderStatus() {
           draggable: true,
           progress: undefined,
           theme: "light",
+          zIndex: 100000,
         });
 
         // Process queue items
