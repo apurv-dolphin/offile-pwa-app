@@ -1,61 +1,27 @@
-import { useEffect, useState } from "react";
-import reactLogo from "../../assets/react.svg";
-import viteLogo from "/vite.svg";
-import { useOnlineStatus } from "../../context/OnlineStatusContext";
-import { toast } from "react-toastify";
 import "./dashboard.css";
-
 function Dashboard() {
-  const { online } = useOnlineStatus();
-  const [count, setCount] = useState(0);
-  const [offlineIncrements, setOfflineIncrements] = useState(0);
-
-  const handleIncrement = () => {
-    if (online) {
-      setCount((prevCount) => prevCount + 1);
-    } else {
-      setOfflineIncrements((prevIncrement) => prevIncrement + 1);
-    }
-  };
-
-  useEffect(() => {
-    if (online && offlineIncrements > 0) {
-      toast.warn(`you have click ${offlineIncrements} times.`, {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      setCount((prevCount) => prevCount + offlineIncrements);
-      setOfflineIncrements(0); // Reset offline increments
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [online]);
-
   return (
-    <div className="App">
-      <div className="text-center">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="dashboard-container">
+      <h1>Introduction</h1>
+      <div className="info-wrapper">
+        <div className="info-section">
+          <h3>Apurv Khalas (React Developer)</h3>
+          <p>
+            Dedicated and skilled <kbd>React.js</kbd> Developer with a passion
+            for creating robust and efficient web applications. Adept at
+            leveraging <kbd>React.js</kbd> to deliver exceptional user
+            experiences. Currently expanding expertise in <kbd>Vue.js</kbd> and{" "}
+            <kbd>Nuxt.js</kbd> to broaden skill set. Actively learning{" "}
+            <kbd>Node.js</kbd> and <kbd>Express.js</kbd> to diversify and
+            enhance technical capabilities. Committed to staying current with
+            industry trends and embracing new technologies to drive innovation
+            in web development.
+          </p>
+        </div>
+        <div className="image-section">
+          <img src="/apurv.jpg" alt="apurv" height={"400px"} />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card text-center">
-        <button onClick={handleIncrement}>count is {count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs text-center">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   );
 }
