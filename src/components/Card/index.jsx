@@ -1,6 +1,8 @@
 import { useOnlineStatus } from "../../context/OnlineStatusContext";
 import "./card.css";
 import useCartStore from "../../store/CartStore";
+import axios from "axios";
+import { useEffect } from "react";
 
 const products = [];
 
@@ -15,18 +17,34 @@ const generateRandomNumber = () => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+// Array of shoe brands
+const shoeBrands = [
+  "Nike",
+  "Adidas",
+  "Fila",
+  "Puma",
+  "Jordan",
+  "Reebok",
+  "Under Armour",
+  "New Balance",
+  "Vans",
+  "Converse",
+];
+
 // Generate 20 products
 for (let i = 0; i < 20; i++) {
+  const randomBrandIndex = Math.floor(Math.random() * shoeBrands.length);
+  const randomBrand = shoeBrands[randomBrandIndex];
   products.push({
     id: i + 1,
     name: `Product ${i + 1}`,
     price: getRandomPrice(),
     status: "pending",
     sku: generateRandomNumber(),
+    brand: randomBrand, // Assigning random brand to the product
     description: `Description of Product ${i + 1}`,
   });
 }
-
 function Card() {
   const { online } = useOnlineStatus();
   const addToCartData = useCartStore((state) => state.addToCart);
@@ -37,6 +55,23 @@ function Card() {
     addToCartData({ ...item, status });
   };
 
+  const ApiCall = async () => {
+    axios
+      .get("https://dummyjson.com/products?limit=10")
+      .then((response) => {
+        // Handle successful response
+        console.log("Response:", response.data);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error("Error:", error);
+      });
+  };
+
+  useEffect(() => {
+    ApiCall();
+  }, []);
+
   return (
     <div className="card-container">
       <h1>Product List</h1>
@@ -44,6 +79,7 @@ function Card() {
         <div className="container-wrapper">
           {products.map((product) => (
             <div className="cards" key={product.id}>
+              <h4 className="brand">{product?.brand}</h4>
               <div className="imgBx">
                 <img
                   src="http://pngimg.com/uploads/running_shoes/running_shoes_PNG5782.png"

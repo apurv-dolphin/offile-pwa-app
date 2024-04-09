@@ -42,11 +42,10 @@
 }
 
 .container-wrapper .cards:after {
-  content: "Nike";
+  content: "Apurv";
   position: absolute;
-  top: 30%;
-  left: -20%;
-  font-size: 12em;
+  top: 50%;
+  font-size: 6.5em;
   font-weight: 800;
   font-style: italic;
   color: rgba(255, 255, 255, 0.04);
@@ -195,6 +194,12 @@ button {
   display: inline-block;
   position: relative;
   z-index: 1;
+}
+
+.brand {
+  position: absolute;
+  color: #fff;
+  right: 1rem;
 }
 
 .container-wrapper .cards:hover .contentBx button {
