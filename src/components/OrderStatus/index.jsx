@@ -36,7 +36,6 @@ export default function OrderStatus() {
           draggable: true,
           progress: undefined,
           theme: "light",
-          zIndex: 100000,
         });
 
         // Process queue items
@@ -60,6 +59,7 @@ export default function OrderStatus() {
               <th>Product Name</th>
               <th>Price</th>
               <th>SKU</th>
+              <th>Brand</th>
               <th>Status</th>
               <th>Description</th>
             </tr>
@@ -70,6 +70,7 @@ export default function OrderStatus() {
                   <td data-th="Product Name">{item?.name}</td>
                   <td data-th="Price">{item?.price}</td>
                   <td data-th="SKU">{item?.sku}</td>
+                  <td data-th="Brand">{item?.brand}</td>
                   <td
                     data-th="Status"
                     style={{ color: getStatusColor(item?.status) }}
