@@ -1,8 +1,9 @@
 import { useOnlineStatus } from "../../context/OnlineStatusContext";
 import "./card.css";
 import useCartStore from "../../store/CartStore";
-import axios from "axios";
-import { useEffect } from "react";
+// import axios from "axios";
+// import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const products = [];
 
@@ -51,26 +52,37 @@ function Card() {
 
   const addToCart = (item) => {
     const status = online ? "success" : "queue";
+    const message = online ? "Product added to cart" : "Product added to queue";
+    toast.success(message, {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     // Add product with updated status to cart
     addToCartData({ ...item, status });
   };
 
-  const ApiCall = async () => {
-    axios
-      .get("https://dummyjson.com/products?limit=10")
-      .then((response) => {
-        // Handle successful response
-        console.log("Response:", response.data);
-      })
-      .catch((error) => {
-        // Handle error
-        console.error("Error:", error);
-      });
-  };
+  // const ApiCall = async () => {
+  //   axios
+  //     .get("https://dummyjson.com/products?limit=10")
+  //     .then((response) => {
+  //       // Handle successful response
+  //       console.log("Response:", response.data);
+  //     })
+  //     .catch((error) => {
+  //       // Handle error
+  //       console.error("Error:", error);
+  //     });
+  // };
 
-  useEffect(() => {
-    ApiCall();
-  }, []);
+  // useEffect(() => {
+  //   ApiCall();
+  // }, []);
 
   return (
     <div className="card-container">
