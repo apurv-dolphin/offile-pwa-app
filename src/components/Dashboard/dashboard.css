@@ -27,6 +27,11 @@ kbd {
   border-radius: 10px;
 }
 
+.name-animation {
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 768px) {
   .info-wrapper {
     flex-direction: column;
